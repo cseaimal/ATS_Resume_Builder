@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: ats-resume-builder
+    env: docker
+    region: ohio
+    plan: free
+    dockerCommand: /usr/local/bin/docker-start
+    envVars:
+      - key: APP_NAME
+        value: "ATS Resume Builder"
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        value: "https://ats-resume-builder.onrender.com"
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: "ep-sweet-hat-ahuq5kpg.c-3.us-east-1.aws.neon.tech"
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        value: "neondb"
+      - key: DB_USERNAME
+        value: "neondb_owner"
+      - key: DB_PASSWORD
+        value: "npg_u7LkahFgZb3D" # REPLACE THIS WITH YOUR ACTUAL PASSWORD
+      - key: LOG_CHANNEL
+        value: stderr
