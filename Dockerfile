@@ -30,9 +30,20 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Change Apache document root to Laravel's public directory
-RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
-RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/apache2.conf
+# Write a proper Apache VirtualHost config with AllowOverride All
+# This is critical: without AllowOverride All, Apache ignores .htaccess,
+# which means Laravel routing and Vite asset serving both break.
+RUN echo '<VirtualHost *:80>\n\
+    ServerAdmin webmaster@localhost\n\
+    DocumentRoot /var/www/html/public\n\
+    <Directory /var/www/html/public>\n\
+        AllowOverride All\n\
+        Require all granted\n\
+        Options -Indexes +FollowSymLinks\n\
+    </Directory>\n\
+    ErrorLog ${APACHE_LOG_DIR}/error.log\n\
+    CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
 # Set working directory
 WORKDIR /var/www/html
@@ -49,6 +60,7 @@ RUN npm run build
 
 # Set correct permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/public/build
 
 # Use a custom start script
 COPY docker-start.sh /usr/local/bin/docker-start
