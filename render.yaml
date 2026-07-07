@@ -15,7 +15,7 @@ services:
       - key: APP_DEBUG
         value: "false"
       - key: APP_URL
-        value: "https://ats-resume-builder.onrender.com"
+        value: "https://ats-resume-builder-h8jk.onrender.com"
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
