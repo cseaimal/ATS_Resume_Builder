@@ -163,35 +163,7 @@
                 </div>
             </div>
 
-            <!-- Review card -->
-            <div style="position: relative; z-index: 1;">
-                <div class="auth-review">
-                    <div class="auth-review-stars">★★★★★</div>
-                    <p class="auth-review-text">"I applied to 20 jobs, heard back from 15. ResumeForge completely changed my job search."</p>
-                    <div class="auth-reviewer">
-                        <div class="auth-reviewer-avatar">AK</div>
-                        <div>
-                            <div class="auth-reviewer-name">Alex K.</div>
-                            <div class="auth-reviewer-role">Software Engineer at Google</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="auth-stats" style="margin-top: 20px;">
-                    <div>
-                        <div class="auth-stat-value text-gradient">10K+</div>
-                        <div class="auth-stat-label">Resumes built</div>
-                    </div>
-                    <div>
-                        <div class="auth-stat-value" style="background:linear-gradient(135deg,#06d6a0,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">92%</div>
-                        <div class="auth-stat-label">ATS pass rate</div>
-                    </div>
-                    <div>
-                        <div class="auth-stat-value" style="background:linear-gradient(135deg,#f59e0b,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Free</div>
-                        <div class="auth-stat-label">Forever</div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Right Panel (Form) -->

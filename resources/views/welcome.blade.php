@@ -906,20 +906,7 @@
                 @endauth
             </div>
 
-            <div class="hero-social-proof">
-                <div class="proof-avatars">
-                    <div class="proof-avatar pa1">A</div>
-                    <div class="proof-avatar pa2">B</div>
-                    <div class="proof-avatar pa3">C</div>
-                    <div class="proof-avatar pa4">D</div>
-                    <div class="proof-avatar pa5">E</div>
-                </div>
-                <div class="proof-stars">★★★★★</div>
-                <span class="proof-sep"></span>
-                <p class="proof-text" style="margin:0">Loved by <strong style="color:#f0f4ff">10,000+</strong> job seekers</p>
-                <span class="proof-sep"></span>
-                <p class="proof-text" style="margin:0">100% Free, No credit card</p>
-            </div>
+
         </div>
     </section>
 
