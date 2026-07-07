@@ -454,8 +454,8 @@
                         body: JSON.stringify(this.personalInfo)
                     });
                     if (res.ok) this.showToast('Personal info saved!');
-                    else this.showToast('Save failed', true);
-                } catch (e) { this.showToast('Network error', true); }
+                    else { const txt = await res.text(); this.showToast(`Error ${res.status}`, true); console.error('Save failed:', res.status, txt); }
+                } catch (e) { this.showToast('Network: ' + e.message, true); }
             },
 
             // ---- Bullets ----
@@ -484,12 +484,13 @@
                         method, headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getCsrf() },
                         body: JSON.stringify(payload)
                     });
+                    if (!res.ok) { const txt = await res.text(); this.showToast(`Error ${res.status}`, true); console.error('Exp save failed:', res.status, txt); return; }
                     const data = await res.json();
                     if (data.success) {
                         this.experiences[index].id = data.data.id;
                         this.showToast('Saved!');
                     }
-                } catch (e) { this.showToast('Error saving', true); }
+                } catch (e) { this.showToast('Network: ' + e.message, true); }
             },
             async deleteExperience(id, index) {
                 if (!id) return this.experiences.splice(index, 1);
